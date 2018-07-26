@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form>
+		<table border="1">
+			<tr>
+				<th><label for="name">이름</label></th>
+				<td><input type="text" id="name"></td>
+			</tr>
+			<tr>
+				<th><label for="birth">생년월일</label></th>
+				<td><input type="text" id="birth"></td>
+			</tr>
+			<tr>
+				<th><label for="email">Email</label></th>
+				<td><input type="text" id="email"></td>
+			</tr>
+			<tr>
+				<th><label for="id">ID</label></th>
+				<td><input type="text" id="id"></td>
+			</tr>
+			<tr>
+				<th><label for="pwd">PW</label></th>
+				<td><input type="password"id="pwd"></td>
+			</tr>
+			<tr>
+				<th><label for="trans">성별</label></th>
+				<td>
+					<select id="trans">
+						<option value="">선택</option>
+						<option value="1">남</option>
+						<option value="2">여</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:center"><button type="button" onclick="checkValue()">회원가입</button></td>
+			</tr>
+		</table>
+	</form>
+	<script>
+		function checkValue() {
+			var nameObj = document.getElementById("name");
+			if(nameObj.value.trim().length<2){
+				alert("2글자 이상 입력해주세요.")
+				nameObj.value="";
+				nameObj.focus();
+				return false;
+			}
+			var birthObj = document.getElementById("birth");
+			if(birthObj.value.trim().length<6){
+				alert("6글자 이상 입력해주세요.")
+				birthObj.value="";
+				birthObj.focus();
+				return false;
+			}
+			var emailObj = document.getElementById("email");
+			if(emailObj.value.trim().length<6){
+				alert("6글자 이상 입력해주세요.")
+				emailObj.value="";
+				emailObj.focus();
+				return false;
+			}
+			var idObj = document.getElementById("id");
+			if(idObj.value.trim().length<1){
+				alert("아이디를 입력해주세요.")
+				idObj.value="";
+				idObj.focus();
+				return false;
+			}
+			var pwdObj = document.getElementById("pwd");
+			if(pwdObj.value.trim().length<9){
+				alert("패스워드를 8자리 이상 입력해주세요.")
+				pwdObj.value="";
+				pwdObj.focus();
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
