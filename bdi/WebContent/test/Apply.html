@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	var userArr = new Array();
+	for (var i=1; i<=5; i++){
+		var user = new Map();
+		user.set('이름', 'test'+i);
+		user.set('나이', 20+i);
+		userArr.push(user);
+	}
+	console.log(userArr.length);
+	for (var i = 0; i < userArr.length; i++) {
+		console.log(userArr[i]);
+	}
+	
+	
+	alert(userArr[0].get('이름'));
+	alert(userArr[0].get('나이'));
+//	alert(userArr[0].get('이름') + ',' + userArr[0].get('나이'));
+
+	
+	
+	</script>
+</body>
+</html>

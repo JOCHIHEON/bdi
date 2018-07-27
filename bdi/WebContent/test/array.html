@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+	var arr = new Array();
+	arr.push('1');
+	arr.push('2');
+	
+	arr = ['1','2','3'];
+	arr.shift();
+	arr.unshift('1');
+	arr.pop();
+	arr.push('3');
+	arr.splice(1,2); //splice(index,count) 인덱스 값 부터 갯수만큼
+	for (var i = 0;i<arr.length;i++) {
+		document.write(arr[i] + '<br>');
+	}
+</script>
+</body>
+</html>
