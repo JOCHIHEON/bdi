@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form>
+	<form action="/user/join.jsp">
 		<table border="1">
 			<tr>
 				<th><label for="name">이름</label></th>
@@ -38,7 +38,20 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" style="text-align:center"><button type="button" onclick="checkValue()">회원가입</button></td>
+				<th>취미</th>
+				<td>
+					<label for="ho1">영화감상</label>
+					<input type="checkbox" id="ho1" name="hobby" value="영화감상">
+					<label for="ho2">음악감상</label>
+					<input type="checkbox" id="ho2" name="hobby" value="음악감상">
+					<label for="ho3">개발</label>
+					<input type="checkbox" id="ho3" name="hobby" value="개발">
+					<label for="ho4">게임</label>
+					<input type="checkbox" id="ho4" name="hobby" value="게임">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:center"><button>회원가입</button></td>
 			</tr>
 		</table>
 	</form>
