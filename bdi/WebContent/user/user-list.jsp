@@ -1,22 +1,26 @@
+<%@page import="com.bdi.test.UserService"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%!
+	public String checkSel(String str1,String str2){
+		if(str1==null){
+			return "";
+		}
+		if(!str1.equals(str2)){
+			return "";
+		}
+		return "selected";
+	}
+%>
 <%
-List<Map<String,String>> userList = 
-new ArrayList<Map<String,String>>();
-
-for(int i=1;i<=10;i++){
-	Map<String,String> user = new HashMap<String,String>();
-	int rNum = (int)(Math.random()*50);
-	user.put("name","홍길동"+i);
-	user.put("age",""+rNum);
-	user.put("address","서울 영등포구 여의도동"+rNum+"번지");
-	user.put("id","hong"+rNum);
-	userList.add(user);
-}
+String search = request.getParameter("search");
+String type = request.getParameter("type");
+UserService us = UserService.getUS();
+List<Map<String,String>> userList = us.getUserList(type, search);
 %>
 <!DOCTYPE>
 <html>
@@ -27,9 +31,26 @@ for(int i=1;i<=10;i++){
 <link rel="stylesheet"
 	href="/bs-3.3.7/bootstrap-3.3.7/dist/css/bootstrap.css" />
 <title>Insert title here</title>
+<style>
+	table td, th{
+		text-align:center;
+	}
+</style>
 </head>
 <body>
 	<div class="container">
+		<div style="height:60px;padding:10px">
+		<form>
+			<select name="type">
+				<option value="name" <%=checkSel(type,"name")%>>이름</option>
+				<option value="age" <%=checkSel(type,"age")%>>나이</option>
+				<option value="address" <%=checkSel(type,"address")%>>주소</option>
+				<option value="id" <%=checkSel(type,"id")%>>아이디</option>
+			</select> : <input type="text" name="search"
+			value="<%=search!=null?search:""%>">
+			<button>검색</button>
+		</form>
+		</div>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -41,7 +62,7 @@ for(int i=1;i<=10;i++){
 			</thead>
 			<tbody>
 <%
-for(int i=0;i<=userList.size();i++){
+for(int i=0;i<userList.size();i++){
 	Map<String,String> user = userList.get(i);
 %>
 				<tr>
